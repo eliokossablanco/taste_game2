@@ -17,7 +17,7 @@ private:
     Customer customer;
     Palate palate;
     Food activeFood;
-    Food* receipt; //holds cooked food to be served to customer
+    Food* dish; //holds cooked food to be served to customer
 
 public:
     Game(int money=0, int level=0);
