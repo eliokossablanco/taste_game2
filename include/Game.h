@@ -5,6 +5,7 @@
 #ifndef TASTE_GAME_GAME_H
 #define TASTE_GAME_GAME_H
 #include <string>
+#include <vector>
 
 #include "Customer.h"
 #include "Food.h"
@@ -14,13 +15,13 @@ private:
     int money;
     int level;
 
-    Customer customer;
+    Customer* customer;
     Palate palate;
-    Food activeFood;
-    Food* dish; //holds cooked food to be served to customer
+    Food* activeFood; //current selected food
+    std::vector<Food> dish; //holds cooked food to be served to customer
 
 public:
-    Game(int money=0, int level=0);
+    explicit Game(int money=0, int level=0);
 
     void serveDish(); //servers current dish to customer
     void clearDish(); //clears all items from dish

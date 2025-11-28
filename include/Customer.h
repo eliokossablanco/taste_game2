@@ -4,14 +4,16 @@
 
 #ifndef TASTE_GAME_CUSTOMER_H
 #define TASTE_GAME_CUSTOMER_H
+#include <string>
+
 #include "Palate.h"
 #include "Food.h"
 
 class Customer {
     private:
-        char* name;
+        std::string name;
         Palate palate;
-        Food* order; //list of items expected in order
+        FoodType* order; //list of items expected in order
 
         Food* recievedFood; //list of foods received from kitchen
 

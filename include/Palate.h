@@ -6,6 +6,7 @@
 #define TASTE_GAME_PALATE_H
 
 enum maskTypes {
+    NONE,
     DIAMOND,
     HORIZONTAL_LINES,
     VERITICAL_LINES,
@@ -15,14 +16,20 @@ enum maskTypes {
 
 class Palate {
 private:
-    int width;
-    int height;
+    int size;
 
     maskTypes mask; //mask out of grid
-    char** grid; //grid of shape width*height
+    char ** grid; //grid of shape width*height
+
+    void setupEmpty(); //sets grid as empty grid
+    void setupDiamond(); //diamond mask
+    void setupHorizontalLines(); //horizontal lines mask
+    void setupVerticalLines(); //vertical lines mask
+    void setupDiagonalCross(); //diagonal cross mask
+    void setupCross(); //cross mask
 
 public:
-    Palate(int width, int height, bool mask); //generate grid and create mask if wanted
+    Palate(int size, bool haveMask); //generate grid and create mask if wanted
 
     //getters
     const char** getGrid();

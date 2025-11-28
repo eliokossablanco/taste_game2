@@ -11,4 +11,8 @@ add_executable(taste_game src/main.cpp
         include/Food.h
         include/Palate.h
         src/main.cpp
+        src/Game.cpp
+        src/Palate.cpp
+        src/Food.cpp
+        src/Customer.cpp
 )

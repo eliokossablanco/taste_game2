@@ -4,6 +4,7 @@
 
 #ifndef TASTE_GAME_FOOD_H
 #define TASTE_GAME_FOOD_H
+#include <map>
 
 enum FoodType {
     CHICKEN,
@@ -17,15 +18,15 @@ enum FoodType {
 
 class Food {
 private:
-    char** shape;
+    FoodType type;
+    std::map<FoodType, char**> shapeMap;
+
     int x;
     int y;
     int cost;
 
-    FoodType type;
-
 public:
-    Food(FoodType, int x, int y, int cost);
+    Food(FoodType t, int x, int y, int cost);
 
     bool move(int x, int y); //moves food if possible
 
