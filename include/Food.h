@@ -30,10 +30,10 @@ public:
     bool move(int x, int y); //moves food if possible
 
     //getters
-    int getX();
-    int getY();
-    int getType();
-    int getCost();
+    const int getX();
+    const int getY();
+    const int getType();
+    const int getCost();
 
     ~Food();
 };

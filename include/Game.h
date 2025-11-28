@@ -31,7 +31,7 @@ public:
 
     void move(int x, int y); //moves selected food piece
 
-    void renderFrame();
+    const void renderFrame();
     int saveGame();
     int loadGame();
 
