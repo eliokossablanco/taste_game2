@@ -1,0 +1,31 @@
+//
+// Created by pigface on 11/22/2025.
+//
+
+#ifndef TASTE_GAME_CUSTOMER_H
+#define TASTE_GAME_CUSTOMER_H
+#include "Palate.h"
+#include "Food.h"
+
+class Customer {
+    private:
+        char* name;
+        Palate palate;
+        Food* order; //list of items expected in order
+
+        Food* recievedFood; //list of foods received from kitchen
+
+    public:
+        Customer(int level); //generate palate and order based on level
+
+        void sendFood(Food food); //send food to palate, and record food type
+
+        //getters
+        const Food* getOrder();
+        const Palate getPalate();
+        const double getSatisfaction(); //returns percent satisfied (filled% * correctness%)
+
+    ~Customer();
+};
+
+#endif //TASTE_GAME_CUSTOMER_H
