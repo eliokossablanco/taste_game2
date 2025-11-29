@@ -7,7 +7,7 @@
 
 Palate::Palate(int size, bool mask) {
     this->size = size;
-    setupDiamond();
+    setupDiagonalCross();
     mask = NONE;
 }
 

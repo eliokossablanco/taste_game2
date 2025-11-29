@@ -14,6 +14,7 @@ class Game{
 private:
     int money;
     int level;
+    bool active=true;
 
     Customer* customer;
     Palate palate;
@@ -35,6 +36,8 @@ public:
     void renderFrame();
     int saveGame();
     int loadGame();
+
+    bool isActive();
 
     ~Game();
 
