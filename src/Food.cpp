@@ -11,4 +11,6 @@ Food::Food(FoodType t, int x, int y, int cost) {
     type = t;
 }
 
-Food::~Food() {}
+Food::~Food() {
+
+}

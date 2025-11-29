@@ -21,6 +21,8 @@ void Palate::setupEmpty() {
 }
 
 Palate::~Palate() {
+    for (int i = 0; i < size; i++) {
+        delete[] grid[i];
+    }
     delete[] grid;
-    grid = nullptr;
 }

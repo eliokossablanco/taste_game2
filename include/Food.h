@@ -19,7 +19,7 @@ enum FoodType {
 class Food {
 private:
     FoodType type;
-    std::map<FoodType, char**> shapeMap;
+    //std::map<FoodType, char**> shapeMap;
 
     int x;
     int y;
