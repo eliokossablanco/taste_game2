@@ -3,11 +3,23 @@
 //
 #include "Game.h"
 
+#include <iostream>
+
 Game::Game(int money, int level): palate(10,false) {
     this->money = money;
     this->level = level;
     activeFood = nullptr;
     customer = new Customer(level);
+}
+
+void Game::renderFrame() {
+    char** grid = palate.getGrid();
+    for (int y = 0; y < palate.getSize(); y++) {
+        for (int x = 0; x < palate.getSize(); x++) {
+            std::cout << grid[y][x]<< " ";
+        }
+        std::cout << std::endl;
+    }
 }
 
 Game::~Game() {

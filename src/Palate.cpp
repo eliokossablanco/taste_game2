@@ -20,6 +20,14 @@ void Palate::setupEmpty() {
     }
 }
 
+int Palate::getSize() {
+    return size;
+}
+
+char **Palate::getGrid() {
+    return grid;
+}
+
 Palate::~Palate() {
     for (int i = 0; i < size; i++) {
         delete[] grid[i];

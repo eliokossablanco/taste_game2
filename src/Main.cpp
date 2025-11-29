@@ -33,7 +33,7 @@ Game session = Game();
 // }
 
 int main() {
-    std::cout << "test" << std::endl;
+    session.renderFrame();
 }
     // int input;
     // cout << "1. Load save --- 2. New save";

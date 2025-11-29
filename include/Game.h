@@ -32,7 +32,7 @@ public:
 
     void move(int x, int y); //moves selected food piece
 
-    const void renderFrame();
+    void renderFrame();
     int saveGame();
     int loadGame();
 

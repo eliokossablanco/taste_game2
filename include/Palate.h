@@ -32,7 +32,8 @@ public:
     Palate(int size, bool haveMask); //generate grid and create mask if wanted
 
     //getters
-    const char** getGrid();
+    char **getGrid();
+    int getSize();
     void sendFood(int x, int y, char** shape); //apply food at position
 
     ~Palate();
