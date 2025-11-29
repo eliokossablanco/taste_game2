@@ -2,6 +2,7 @@
 // Created by pigface on 11/22/2025.
 //
 #include <iostream>
+#include <cstdlib>
 
 #include "../include/Game.h"
 using namespace std;
@@ -34,6 +35,7 @@ Game session = Game();
 
 int main() {
     session.renderFrame();
+    //system("cls");
 }
     // int input;
     // cout << "1. Load save --- 2. New save";

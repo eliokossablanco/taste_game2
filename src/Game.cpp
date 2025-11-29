@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-Game::Game(int money, int level): palate(10,false) {
+Game::Game(int money, int level): palate(15,false) {
     this->money = money;
     this->level = level;
     activeFood = nullptr;
