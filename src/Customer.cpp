@@ -5,7 +5,9 @@
 
 #include "Customer.h"
 
-Customer::Customer(int level) : palate(int(5 + (2 * log(level + 1))), false){
+Customer::Customer(int level) :
+    palate(int(5 + (2 * log(level + 1))), false) //size of palate is logarithmic relationship of level
+{
     name = "Elio";
 
     //TODO setup order
