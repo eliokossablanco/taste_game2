@@ -16,10 +16,23 @@ void Game::renderFrame() {
     char** grid = palate.getGrid();
     for (int y = 0; y < palate.getSize(); y++) {
         for (int x = 0; x < palate.getSize(); x++) {
-            std::cout << grid[y][x]<< " ";
+            std::cout << getMetaChar(grid[y][x], false)<< " ";
         }
         std::cout << std::endl;
     }
+}
+
+std::string Game::getMetaChar(char character, bool overlay = false) {
+    if (character == '_') {
+        if (overlay) return std::string(2,char(176));
+        return "__";
+    }
+    if (character == 'X') {
+        if (overlay) return std::string(2,char(178));
+        return std::string(2,char(219));
+    }
+
+    if (character == '@') return std::string(2,char(206));
 }
 
 bool Game::isActive() {

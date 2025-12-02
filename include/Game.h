@@ -21,6 +21,8 @@ private:
     Food* activeFood; //current selected food
     std::vector<Food> dish; //holds cooked food to be served to customer
 
+    static std::string getMetaChar(char character,bool overlay); //returns a string more visually interesting for an associated char
+
 public:
     explicit Game(int money=0, int level=0);
 
@@ -34,6 +36,7 @@ public:
     void move(int x, int y); //moves selected food piece
 
     void renderFrame();
+
     int saveGame();
     int loadGame();
 

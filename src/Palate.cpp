@@ -16,7 +16,7 @@ void Palate::setupEmpty() {
     for (int i = 0; i < size; i++) {
         grid[i] = new char[size];
         for (int j = 0; j < size; j++) {
-            grid[i][j] = '.';
+            grid[i][j] = '_';
         }
     }
 } //Empty grid
@@ -27,7 +27,7 @@ void Palate::setupDiagonalCross() {
         grid[i] = new char[size];
         for (int j = 0; j < size; j++) {
             if (i==j or abs(size-i)==j+1) grid[i][j] = 'X';
-            else grid[i][j] = '.';
+            else grid[i][j] = '_';
         }
     }
 } //diagonal cross going through middle
@@ -39,7 +39,7 @@ void Palate::setupDiamond() {
         for (int j = 0; j < size; j++) {
             int mid = size / 2;
             int dist = (abs(i-mid)+abs(j-mid));
-            if (dist<mid) grid[i][j] = '.';
+            if (dist<mid) grid[i][j] = '_';
             else grid[i][j] = 'X';
         }
     }
@@ -52,7 +52,7 @@ void Palate::setupDiamond() {
 //         for (int j = 0; j < size; j++) {
 //             int mid = size / 2;
 //             int dist = sqrt(pow(abs(i-mid),2)+pow(abs(j-mid),2));
-//             if (dist<mid) grid[i][j] = '.';
+//             if (dist<mid) grid[i][j] = '_';
 //             else grid[i][j] = 'X';
 //         }
 //     }
