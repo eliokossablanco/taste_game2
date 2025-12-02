@@ -53,7 +53,7 @@ bool textSimiliar(string a, string b) {
 
 bool interpretInput(string input) {
 
-    //system("cls");
+    system("cls");
     session.renderFrame();
     cout << endl;
 
