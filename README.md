@@ -1,6 +1,9 @@
 ## TASTE GAME
 -console puzzle game. cook and serve food to specifications.
 
+**If you are running in CLion console, do run/edit configurations then turn ON "emulate terminal in the output console"** 
+
+
 ## Current Status
 
 **Implimented**
