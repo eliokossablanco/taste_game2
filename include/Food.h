@@ -6,6 +6,7 @@
 #define TASTE_GAME_FOOD_H
 #include <map>
 #include <string>
+#include <vector>
 
 // enum FoodType {
 //     CHICKEN,
@@ -17,16 +18,15 @@
 //     POTATO
 // };
 
-
+const static std::map<std::string, char**> shapeMap ={
+    {"chicken", {} },
+    {"bread",{}},
+    {"lettuce",{}}
+};
 
 class Food {
 private:
     std::string type;
-    std::map<std::string, char**> shapeMap ={
-        {"chicken", {} },
-        {"bread",{}},
-        {"lettuce",{}}
-    };
 
     int x;
     int y;
@@ -43,9 +43,9 @@ public:
     const int getType();
     const int getCost();
 
-    const static std::map<std::string, char> input;
-
     ~Food();
+
+    const static std::vector<std::string> getFoods();
 };
 
 #endif //TASTE_GAME_FOOD_H

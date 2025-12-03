@@ -5,6 +5,8 @@
 
 #include <iostream>
 
+int defaultCost = 10;
+
 Game::Game(int money, int level): palate(5,false) {
     this->money = money;
     this->level = level;
@@ -12,11 +14,20 @@ Game::Game(int money, int level): palate(5,false) {
     customer = new Customer(level);
 }
 
+void Game::chooseFood(std::string selection) {
+    activeFood = new Food(selection,palate.getSize()/2, palate.getSize()/2, defaultCost);
+}
+
 void Game::renderFrame() {
     char** grid = palate.getGrid();
     for (int y = 0; y < palate.getSize(); y++) {
         for (int x = 0; x < palate.getSize(); x++) {
-            std::cout << getMetaChar(grid[y][x], false)<< " ";
+
+            bool hasOverlay;
+            if (activeFood != nullptr)
+                hasOverlay = (activeFood->getX() == x && activeFood->getY() == y); //TODO CHANGE TO SHAPE
+
+            std::cout << getMetaChar(grid[y][x], hasOverlay)<< " ";
         }
         std::cout << std::endl;
     }
@@ -33,6 +44,7 @@ std::string Game::getMetaChar(char character, bool overlay = false) {
     }
 
     if (character == '@') return std::string(2,char(206));
+    else return "[]";
 }
 
 bool Game::isActive() {

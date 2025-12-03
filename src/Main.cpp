@@ -5,6 +5,7 @@
 #include <iostream>
 #include <cstdlib>
 
+#include "../include/Food.h"
 #include "../include/Game.h"
 using namespace std;
 int stringErrorMargin = 2;
@@ -76,7 +77,24 @@ bool interpretInput(string input) {
 
     else if (textSimiliar(input,"food")) {
         cout << "Select a food\n";
+        vector<string> foods = Food::getFoods();
+        for (int i = 0; i < foods.size(); i++) {
+            cout << "-" << foods[i] <<endl;
+        }
 
+        string foodInput;
+        getline(cin, foodInput);
+        for (int i = 0; i < foods.size(); i++) {
+            if (textSimiliar(foodInput,foods[i])) {
+                cout << "\n-- Selected " << foods[i] << endl;
+                cout << "Press enter to apply\n";
+
+                session.chooseFood(foods[i]);
+
+                return true; //I know this is hacky but whatever
+            }
+        }
+        cout << "Input \"" << foodInput << "\" not recognized.\n";
     }
 
     else if (textSimiliar(input, "quit")) {
@@ -90,7 +108,6 @@ bool interpretInput(string input) {
     }
 
     else {
-
         cout << "Unknown input \"" << input << "\" Type 'Help' for list of actions.\n";
         return false;
     }
