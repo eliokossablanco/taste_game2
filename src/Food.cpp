@@ -23,6 +23,11 @@ Food::Food(std::string type, int x, int y, int cost) {
     this-> type = type;
 }
 
+void Food::move(int x, int y) {
+    this->x += x;
+    this->y += y;
+}
+
 const int Food::getX() {
     return x;
 }

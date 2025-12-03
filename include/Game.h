@@ -33,7 +33,7 @@ public:
     void applyFood(); //applies current food to dish
     void chooseFood(std::string selection); //sets active food, spends money
 
-    void move(int x, int y); //moves selected food piece
+    bool move(int x, int y); //moves selected food piece if possible
 
     void renderFrame();
 

@@ -6,17 +6,29 @@
 #include <iostream>
 
 int defaultCost = 10;
+int defaultSize = 11;
 
-Game::Game(int money, int level): palate(5,false) {
+Game::Game(int money, int level): palate(defaultSize,false) {
     this->money = money;
     this->level = level;
     activeFood = nullptr;
     customer = new Customer(level);
 }
 
+//Feature functions
+
 void Game::chooseFood(std::string selection) {
     activeFood = new Food(selection,palate.getSize()/2, palate.getSize()/2, defaultCost);
 }
+
+bool Game::move(int x, int y) {
+    if (activeFood==nullptr) return false; //TODO add failsafe message
+    //TODO add edge movement protection
+    activeFood->move(x, y);
+    return true;
+}
+
+//Helper functions
 
 void Game::renderFrame() {
     char** grid = palate.getGrid();
@@ -27,7 +39,7 @@ void Game::renderFrame() {
             if (activeFood != nullptr)
                 hasOverlay = (activeFood->getX() == x && activeFood->getY() == y); //TODO CHANGE TO SHAPE
 
-            std::cout << getMetaChar(grid[y][x], hasOverlay)<< " ";
+            std::cout << getMetaChar(grid[y][x], hasOverlay);
         }
         std::cout << std::endl;
     }
@@ -35,8 +47,8 @@ void Game::renderFrame() {
 
 std::string Game::getMetaChar(char character, bool overlay = false) {
     if (character == '_') {
-        if (overlay) return std::string(2,char(176));
-        return "[]";
+        if (overlay) return std::string(2,char(177));
+        return "  ";
     }
     if (character == 'X') {
         if (overlay) return std::string(2,char(219));

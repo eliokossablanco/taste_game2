@@ -35,7 +35,7 @@ private:
 public:
     Food(std::string type, int x, int y, int cost);
 
-    bool move(int x, int y); //moves food if possible
+    void move(int x, int y); //moves food
 
     //getters
     const int getX();

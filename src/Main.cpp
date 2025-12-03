@@ -8,7 +8,7 @@
 #include "../include/Food.h"
 #include "../include/Game.h"
 using namespace std;
-int stringErrorMargin = 2;
+int stringErrorMargin = 1;
 
 Game session = Game();
 
@@ -45,7 +45,7 @@ int levenshteinRecursive(const string& str1,const string& str2, int m, int n) {
                                         n - 1)));
 }
 
-bool textSimiliar(string a, string b) {
+bool textSimilar(string a, string b) {
 
     std::transform(a.begin(), a.end(), a.begin(), ::tolower);
     a.erase(std::remove_if(a.begin(), a.end(), ::isspace), a.end());
@@ -53,29 +53,23 @@ bool textSimiliar(string a, string b) {
 }
 
 bool interpretInput(string input) {
+    input = input.substr(0, 8);
+    string message = "What would you like to do next? Type 'Help' for list of actions.";
 
-    system("cls");
-    session.renderFrame();
-    cout << endl;
-
-    if (textSimiliar(input,"help")) {
-        cout << "Help menu\n";
+    if (textSimilar(input,"help")) {
+        message = "Help menu";
     }
 
-    // if (input == "up") session.move(0,1);
-    // else if (input == "down") session.move(0,-1);
-    // else if (input == "left") session.move(-1,0);
-    // else if (input == "right") session.move(1,0);
-    //
-    // else if (input == "select food") {  //TODO FEATURE 2
-    //     //TODO food selection
-    //     session.chooseFood("food");
-    // }
+    else if (textSimilar(input,"w") or textSimilar(input,"cook")) session.move(0,-1);
+    else if (textSimilar(input, "s") or textSimilar(input,"lemon")) session.move(0,1);
+    else if (textSimilar(input, "a") or textSimilar(input,"oil")) session.move(-1,0);
+    else if (textSimilar(input, "d") or textSimilar(input,"water")) session.move(1,0);
+
     // else if (input == "dish up") session.applyFood();
     // else if (input == "serve") session.serveDish();
     // else if (input== "86") session.clearDish();
 
-    else if (textSimiliar(input,"food")) {
+    else if (textSimilar(input,"food")) {
         cout << "Select a food\n";
         vector<string> foods = Food::getFoods();
         for (int i = 0; i < foods.size(); i++) {
@@ -84,35 +78,40 @@ bool interpretInput(string input) {
 
         string foodInput;
         getline(cin, foodInput);
+        bool foodFound = false;
+
         for (int i = 0; i < foods.size(); i++) {
-            if (textSimiliar(foodInput,foods[i])) {
-                cout << "\n-- Selected " << foods[i] << endl;
-                cout << "Press enter to apply\n";
-
+            if (textSimilar(foodInput,foods[i])) {
+                message = "\n-- Selected " + foods[i];
+                //cout << "Press enter to apply\n";
                 session.chooseFood(foods[i]);
+                foodFound = true;
 
-                return true; //I know this is hacky but whatever
             }
         }
-        cout << "Input \"" << foodInput << "\" not recognized.\n";
+        if (!foodFound) {
+            message = "Food not found";
+        }
     }
 
-    else if (textSimiliar(input, "quit")) {
+    else if (textSimilar(input, "quit")) {
         string confirm;
         cout << "Quit without saving? \n Yes/No \n";
         cin >> confirm;
-        if (textSimiliar(confirm, "yes")) {
+        if (textSimilar(confirm, "yes")) {
             cout << "\nGoodbye! o/";
             exit(1);
         }
     }
 
     else {
-        cout << "Unknown input \"" << input << "\" Type 'Help' for list of actions.\n";
-        return false;
+        message = "Unknown input \"" + input + "\" Type 'Help' for list of actions.\n";
     }
 
-    cout << "What would you like to do next? Type 'Help' for list of actions.\n";
+    system("cls");
+    session.renderFrame();
+    cout << message <<endl;
+
     return true;
 }
 
