@@ -25,11 +25,11 @@ void Game::renderFrame() {
 std::string Game::getMetaChar(char character, bool overlay = false) {
     if (character == '_') {
         if (overlay) return std::string(2,char(176));
-        return "__";
+        return "[]";
     }
     if (character == 'X') {
-        if (overlay) return std::string(2,char(178));
-        return std::string(2,char(219));
+        if (overlay) return std::string(2,char(219));
+        return std::string(2,char(178));
     }
 
     if (character == '@') return std::string(2,char(206));

@@ -45,20 +45,6 @@ void Palate::setupDiamond() {
     }
 }
 
-// void Palate::setupCircle() {
-//     grid = new char* [size];
-//     for (int i = 0; i < size; i++) {
-//         grid[i] = new char[size];
-//         for (int j = 0; j < size; j++) {
-//             int mid = size / 2;
-//             int dist = sqrt(pow(abs(i-mid),2)+pow(abs(j-mid),2));
-//             if (dist<mid) grid[i][j] = '_';
-//             else grid[i][j] = 'X';
-//         }
-//     }
-// }
-
-
 int Palate::getSize() {
     return size;
 }

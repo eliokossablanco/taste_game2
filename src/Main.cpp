@@ -74,6 +74,11 @@ bool interpretInput(string input) {
     // else if (input == "serve") session.serveDish();
     // else if (input== "86") session.clearDish();
 
+    else if (textSimiliar(input,"food")) {
+        cout << "Select a food\n";
+
+    }
+
     else if (textSimiliar(input, "quit")) {
         string confirm;
         cout << "Quit without saving? \n Yes/No \n";
