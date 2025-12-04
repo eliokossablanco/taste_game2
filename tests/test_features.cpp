@@ -2,8 +2,8 @@
 // Created by oinkh on 11/28/2025.
 //
 
-#include "Game.h"
-#include "Palate.h"
+#include "../include/Game.h"
+#include "../include/Palate.h"
 
 #include <cassert>
 #include <iostream>

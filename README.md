@@ -8,12 +8,12 @@
 
 **Implimented**
 -feature 1, accessing and displaying palate finished.
+-feature 2, selecting and moving food
 
 **In Progress**
--feature 2, selecting and displaying food.
+-feature 3, food shapes and collission
 
 **Planned**
--feature 3, move around food pieces and (possibly) modift shape
 -feature 4, dish up and apply to palate
 -feature 5, get pain on how good the food is
 
@@ -33,12 +33,5 @@ cmake ..
 cmake --build .
 ```
 
-## Building
-```bash
-mkdir build
-cd build
-cmake ..
-cmake --build .
-```
 ## Author
 Elio Kossa-Blanco - CIS 25 Final Project

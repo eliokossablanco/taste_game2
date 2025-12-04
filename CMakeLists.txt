@@ -4,7 +4,21 @@ project(taste_game2)
 set(CMAKE_CXX_STANDARD 20)
 
 include_directories(include)
+
 add_executable(taste_game2 src/main.cpp
+        #include/Customer.h
+        #include/Food.h
+        #include/Palate.h
+        #include/Game.h
+        src/Game.cpp
+        src/Palate.cpp
+        src/Food.cpp
+        src/Customer.cpp
+)
+
+add_executable(test_features
+        tests/test_features.cpp
+
         include/Customer.h
         include/Food.h
         include/Palate.h

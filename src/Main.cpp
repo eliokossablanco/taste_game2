@@ -3,6 +3,7 @@
 //
 #include <algorithm>
 #include <iostream>
+#include <cmath>
 #include <cstdlib>
 
 #include "../include/Food.h"
@@ -49,11 +50,10 @@ bool textSimilar(string a, string b) {
 
     std::transform(a.begin(), a.end(), a.begin(), ::tolower);
     a.erase(std::remove_if(a.begin(), a.end(), ::isspace), a.end());
-    return (levenshteinRecursive(a,b,a.length(),b.length())<=stringErrorMargin );
+    return (levenshteinRecursive(a,b,a.length(),b.length())<=floor(a.length()*0.4) );
 }
 
 bool interpretInput(string input) {
-    input = input.substr(0, 8);
     string message = "What would you like to do next? Type 'Help' for list of actions.";
 
     if (textSimilar(input,"help")) {
@@ -136,7 +136,15 @@ int main() {
     session.renderFrame();
     cout << "\nWhat would you like to do? Type 'Help' for list of actions.\n";
 
+    session.move(-1,0);
+    session.chooseFood("giberish");
+    session.move(2,1);
+    session.chooseFood("bread");
+    session.move(3,-4);
+    session.renderFrame();
+
     while (session.isActive()) {
+
 
         std::string input;
         //bool inputRecognized = false;

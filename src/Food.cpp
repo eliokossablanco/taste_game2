@@ -15,7 +15,6 @@ const std::vector<std::string> Food::getFoods() {
     return foods;
 }
 
-
 Food::Food(std::string type, int x, int y, int cost) {
     this->x = x;
     this->y = y;
