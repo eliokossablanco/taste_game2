@@ -6,16 +6,16 @@
 
 ## Current Status
 
-**Implimented**
--feature 1, accessing and displaying palate finished.
+**Implemented**
+-feature 1, accessing and displaying palate
 -feature 2, selecting and moving food
+-feature 3, food shapes
 
 **In Progress**
--feature 3, food shapes and collission
+-feature 4, dish up and apply to palate
 
 **Planned**
--feature 4, dish up and apply to palate
--feature 5, get pain on how good the food is
+-feature 5, get paid on how good the food is
 
 ## FEATURES
 1. **view palate shape and size of customer**
