@@ -2,6 +2,7 @@
 // Created by oinkh on 11/28/2025.
 //
 #include "Game.h"
+#include "Food.h"
 
 #include <iostream>
 
@@ -23,7 +24,6 @@ void Game::chooseFood(std::string selection) {
 
 bool Game::move(int x, int y) {
     if (activeFood==nullptr) return false; //TODO add failsafe message
-    //TODO add edge movement protection
     activeFood->move(x, y);
     return true;
 }
@@ -31,13 +31,21 @@ bool Game::move(int x, int y) {
 //Helper functions
 
 void Game::renderFrame() {
+
     char** grid = palate.getGrid();
     for (int y = -1; y <= palate.getSize(); y++) {
         for (int x = -1; x <= palate.getSize(); x++) {
 
-            bool hasOverlay;
-            if (activeFood != nullptr)
-                hasOverlay = (activeFood->getX() == x && activeFood->getY() == y); //TODO CHANGE TO SHAPE
+            bool hasOverlay=false;
+
+            if (activeFood != nullptr) {
+                int foodX = x-activeFood->getX();
+                int foodY = y-activeFood->getY();
+
+                hasOverlay = Food::getIfFilled(activeFood->getType(), foodX, foodY);
+            }
+            //if (activeFood != nullptr)
+            //    hasOverlay = (activeFood->getX() == x && activeFood->getY() == y); //TODO CHANGE TO SHAPE
 
             if (y<0 or x<0 or x>=palate.getSize() or y>=palate.getSize()) std::cout << getMetaChar('!', hasOverlay);
             else std::cout << getMetaChar(grid[y][x], hasOverlay);

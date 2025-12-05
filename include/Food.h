@@ -27,7 +27,7 @@ const static std::map<std::string, std::vector<std::vector<bool>>> shapeMap ={ /
 
 class Food {
 private:
-    std::string type;
+    std::string type = "";
 
     int x;
     int y;
@@ -41,11 +41,13 @@ public:
     //getters
     const int getX();
     const int getY();
-    const int getType();
+
+    const std::string getType();
     const int getCost();
 
     ~Food();
 
+    const static bool getIfFilled(std::string type,int x, int y);
     const static std::vector<std::string> getFoods();
 };
 

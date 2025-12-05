@@ -15,6 +15,20 @@ const std::vector<std::string> Food::getFoods() {
     return foods;
 }
 
+const bool Food::getIfFilled(std::string type,int x, int y) {
+
+    for (const auto &pair : shapeMap) {
+        if (type == pair.first) {
+            std::vector<std::vector<bool>> shape = pair.second;
+
+            if (x<0 or y<0 or x>=shape[0].size() or y>=shape.size())
+                return false;
+
+            return shape[y][x];
+        }
+    }
+}
+
 Food::Food(std::string type, int x, int y, int cost) {
     this->x = x;
     this->y = y;
@@ -35,6 +49,9 @@ const int Food::getY() {
     return y;
 }
 
-Food::~Food() {
+const std::string Food::getType() {
+    return type;
+}
 
+Food::~Food() {
 }
