@@ -32,14 +32,15 @@ bool Game::move(int x, int y) {
 
 void Game::renderFrame() {
     char** grid = palate.getGrid();
-    for (int y = 0; y < palate.getSize(); y++) {
-        for (int x = 0; x < palate.getSize(); x++) {
+    for (int y = -1; y <= palate.getSize(); y++) {
+        for (int x = -1; x <= palate.getSize(); x++) {
 
             bool hasOverlay;
             if (activeFood != nullptr)
                 hasOverlay = (activeFood->getX() == x && activeFood->getY() == y); //TODO CHANGE TO SHAPE
 
-            std::cout << getMetaChar(grid[y][x], hasOverlay);
+            if (y<0 or x<0 or x>=palate.getSize() or y>=palate.getSize()) std::cout << getMetaChar('!', hasOverlay);
+            else std::cout << getMetaChar(grid[y][x], hasOverlay);
         }
         std::cout << std::endl;
     }
@@ -56,6 +57,11 @@ std::string Game::getMetaChar(char character, bool overlay = false) {
     }
 
     if (character == '@') return std::string(2,char(206));
+
+    if (character == '!') {
+        if (overlay) return "!!";
+        return std::string(2,char(179));
+    }
     else return "[]";
 }
 

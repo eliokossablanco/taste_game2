@@ -110,7 +110,7 @@ bool interpretInput(string input) {
 
     system("cls");
     session.renderFrame();
-    cout << message <<endl;
+    cout << endl << message <<endl;
 
     return true;
 }
@@ -136,15 +136,7 @@ int main() {
     session.renderFrame();
     cout << "\nWhat would you like to do? Type 'Help' for list of actions.\n";
 
-    session.move(-1,0);
-    session.chooseFood("giberish");
-    session.move(2,1);
-    session.chooseFood("bread");
-    session.move(3,-4);
-    session.renderFrame();
-
     while (session.isActive()) {
-
 
         std::string input;
         //bool inputRecognized = false;

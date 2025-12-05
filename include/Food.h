@@ -18,10 +18,11 @@
 //     POTATO
 // };
 
-const static std::map<std::string, char**> shapeMap ={
-    {"chicken", {} },
-    {"bread",{}},
-    {"lettuce",{}}
+const static std::map<std::string, std::vector<std::vector<bool>>> shapeMap ={ //map of shapes assosiated with food
+    {"chicken", {{1,1,0},{1,1,1}} },
+    {"bread",{{1,0},{1,0},{1,1},{1,1}}},
+    {"lettuce",{{1,1,1,1,1,1,}}},
+    {"lettuce",{{1,1,0,0},{1,0,1,1}}}
 };
 
 class Food {
