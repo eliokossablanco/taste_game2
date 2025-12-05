@@ -1,7 +1,6 @@
 //
 // Created by oinkh on 11/28/2025.
 //
-
 #include "Food.h"
 
 #include <vector>
@@ -27,6 +26,7 @@ const bool Food::getIfFilled(std::string type,int x, int y) {
             return shape[y][x];
         }
     }
+    return false;
 }
 
 Food::Food(std::string type, int x, int y, int cost) {

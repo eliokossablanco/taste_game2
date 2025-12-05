@@ -16,25 +16,26 @@ but also had to redo the way I was storing food types to be able to access it an
 
 ###Normal operation
 
-Game::chooseFood("chicken");
-Game::move(0,1);
-Game::renderFrame();
+session.chooseFood("chicken");
+session.move(0,1);
+session.renderFrame();
 
 Works
 
 ###Edge case
 
-Game::move(-1,0)
-Game::choseFood("bread");
-Game::move(3,-4);
-Game::renderFrame();
+session.move(-1,0);
+session.chooseFood("bread");
+session.move(3,-4);
+session.renderFrame();
 
 Works
 
 ###Boundary condition
 
-Game::chooseFood("gibberish");
-Game::move(2,1);
+session.chooseFood("gibberish");
+session.move(2,1);
+session.renderFrame();
 
 Works
 

@@ -132,6 +132,9 @@ int main() {
     // }
     //
 
+    session.chooseFood("gibberish");
+    session.move(2,1);
+
     //system("cls");
     session.renderFrame();
     cout << "\nWhat would you like to do? Type 'Help' for list of actions.\n";
