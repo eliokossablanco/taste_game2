@@ -103,6 +103,11 @@ void Palate::applyFood(Food food) {
 
 }
 
+void Palate::clear() {
+    //TODO REPLACE WITH MASK TYPE
+    setupDiamond();
+}
+
 int Palate::getSize() {
     return size;
 }

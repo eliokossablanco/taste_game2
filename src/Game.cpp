@@ -30,6 +30,11 @@ void Game::applyFood() {
     palate->applyFood(*activeFood);
 }
 
+void Game::clearDish() {
+    palate->clear();
+}
+
+
 bool Game::move(int x, int y) {
     if (activeFood==nullptr) return false; //TODO add failsafe message
     activeFood->move(x, y);

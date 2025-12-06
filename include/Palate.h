@@ -22,6 +22,11 @@ private:
     maskTypes mask; //mask out of grid
     char ** grid; //grid of shape width*height
 
+    void fillNasty(); //sets grid as nasty
+
+public:
+    Palate(int size, bool haveMask); //generate grid and create mask if wanted
+
     void setupEmpty(); //sets grid as empty grid
     void setupDiamond(); //diamond mask
     void setupHorizontalLines(); //horizontal lines mask
@@ -29,10 +34,7 @@ private:
     void setupDiagonalCross(); //diagonal cross mask
     void setupCross(); //cross mask
 
-    void fillNasty(); //sets grid as nasty
-
-public:
-    Palate(int size, bool haveMask); //generate grid and create mask if wanted
+    void clear();
 
     //getters
     char **getGrid();
