@@ -21,8 +21,6 @@ class Customer {
     public:
         Customer(int level); //generate palate and order based on level
 
-        void sendFood(Food food); //send food to palate, and record food type
-
         //getters
         const Food* getOrder();
         Palate* getPalate();

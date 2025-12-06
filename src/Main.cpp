@@ -57,7 +57,18 @@ bool interpretInput(string input) {
     string message = "What would you like to do next? Type 'Help' for list of actions.";
 
     if (textSimilar(input,"help")) {
-        message = "Help menu";
+        message = "Help menu:\n\n";
+
+        message += "'Food'- opens food menu.\n";
+        message += "'Cook'- cooks food and moves it up on the board.\n";
+        message += "'Lemon'- adds lemon to the food and moves it down on the board.\n";
+        message += "'Oil'- adds olive oil to the food and moves it left on the board.\n";
+        message += "'Water'- adds water to the food and moves it right on the board.\n";
+        message += "'Plate'- plates current food to dish.\n";
+        message += "'86'- clear the dish.\n";
+        message += "'Serve' -Serves the dish to the customer.\n";
+
+        message += "\n'Quit' - quit game without saving. (game autosaves after each customer)"; //TODO not yet lol
     }
 
     else if (textSimilar(input,"w") or textSimilar(input,"cook")) session.move(0,-1);
