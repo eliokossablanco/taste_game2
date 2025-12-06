@@ -76,7 +76,7 @@ bool interpretInput(string input) {
     else if (textSimilar(input, "a") or textSimilar(input,"oil")) session.move(-1,0);
     else if (textSimilar(input, "d") or textSimilar(input,"water")) session.move(1,0);
 
-    // else if (input == "dish up") session.applyFood();
+     else if (input == "plate") session.applyFood();
     // else if (input == "serve") session.serveDish();
     // else if (input== "86") session.clearDish();
 

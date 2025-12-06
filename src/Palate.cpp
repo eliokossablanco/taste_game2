@@ -5,12 +5,6 @@
 #include "Palate.h"
 #include <cmath>
 
-Palate::Palate(int size, bool mask) {
-    this->size = size;
-    mask = NONE;
-    setupEmpty();
-}
-
 void Palate::setupEmpty() {
     grid = new char* [size];
     for (int i = 0; i < size; i++) {
@@ -44,6 +38,28 @@ void Palate::setupDiamond() {
         }
     }
 }
+
+Palate::Palate(int size, bool mask) {
+    this->size = size;
+    mask = NONE;
+    setupEmpty();
+}
+
+void Palate::applyFood(Food food) {
+    int y = food.getX();
+    int x = food.getY();
+
+    if (x<0 or y <0 or x>size or y>size) {
+        //fillNasty();
+        return;
+    }
+    if (grid[x][y] == '_') grid[x][y] = 'X';
+    else if (grid[x][y] == 'X') grid[x][y] = '@';
+
+
+
+}
+
 
 int Palate::getSize() {
     return size;

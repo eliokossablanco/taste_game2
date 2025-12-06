@@ -25,6 +25,11 @@ void Game::chooseFood(std::string selection) {
     activeFood = new Food(selection,palate->getSize()/2, palate->getSize()/2, defaultCost);
 }
 
+void Game::applyFood() {
+    palate->applyFood(*activeFood);
+}
+
+
 bool Game::move(int x, int y) {
     if (activeFood==nullptr) return false; //TODO add failsafe message
     activeFood->move(x, y);
