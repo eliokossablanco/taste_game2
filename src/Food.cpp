@@ -14,6 +14,23 @@ const std::vector<std::string> Food::getFoods() {
     return foods;
 }
 
+const int Food::getWidth(std::string type) {
+    for (const auto &pair : shapeMap) {
+        if (type == pair.first) {
+            return pair.second[0].size();
+        }
+    }
+}
+
+const int Food::getheight(std::string type) {
+    for (const auto &pair : shapeMap) {
+        if (type == pair.first) {
+            return pair.second.size();
+        }
+    }
+}
+
+
 const bool Food::getIfFilled(std::string type,int x, int y) {
 
     for (const auto &pair : shapeMap) {

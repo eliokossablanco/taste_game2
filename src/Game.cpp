@@ -26,9 +26,9 @@ void Game::chooseFood(std::string selection) {
 }
 
 void Game::applyFood() {
+    if (activeFood == nullptr) return;
     palate->applyFood(*activeFood);
 }
-
 
 bool Game::move(int x, int y) {
     if (activeFood==nullptr) return false; //TODO add failsafe message

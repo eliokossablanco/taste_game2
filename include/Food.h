@@ -42,6 +42,9 @@ public:
     const int getX();
     const int getY();
 
+    const static int getWidth(std::string type);
+    const static int getheight(std::string type);
+
     const std::string getType();
     const int getCost();
 

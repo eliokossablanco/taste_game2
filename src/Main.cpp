@@ -11,7 +11,7 @@
 using namespace std;
 int stringErrorMargin = 1;
 
-Game session = Game();
+Game session = Game(0,1);
 
 int levenshteinRecursive(const string& str1,const string& str2, int m, int n) {
 //Credit https://www.geeksforgeeks.org/dsa/introduction-to-levenshtein-distance/

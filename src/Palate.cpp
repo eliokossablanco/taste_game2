@@ -4,6 +4,8 @@
 
 #include "Palate.h"
 #include <cmath>
+#include <iostream>
+#include <ostream>
 
 void Palate::setupEmpty() {
     grid = new char* [size];
@@ -32,9 +34,19 @@ void Palate::setupDiamond() {
         grid[i] = new char[size];
         for (int j = 0; j < size; j++) {
             int mid = size / 2;
-            int dist = (abs(i-mid)+abs(j-mid));
+            int dist = (abs(i-mid)+abs(j-mid))-1;
             if (dist<mid) grid[i][j] = '_';
             else grid[i][j] = 'X';
+        }
+    }
+}
+
+void Palate::fillNasty() {
+    grid = new char* [size];
+    for (int i = 0; i < size; i++) {
+        grid[i] = new char[size];
+        for (int j = 0; j < size; j++) {
+            grid[i][j] = '@';
         }
     }
 }
@@ -42,24 +54,54 @@ void Palate::setupDiamond() {
 Palate::Palate(int size, bool mask) {
     this->size = size;
     mask = NONE;
-    setupEmpty();
+    setupDiamond();
 }
 
 void Palate::applyFood(Food food) {
-    int y = food.getX();
-    int x = food.getY();
+    int posX = food.getX();
+    int posY = food.getY();
 
-    if (x<0 or y <0 or x>size or y>size) {
-        //fillNasty();
-        return;
+    int width = Food::getWidth(food.getType());
+    int height = Food::getheight(food.getType());
+
+    for (int x=0; x<width; x++) {
+        for (int y=0; y<height; y++) {
+
+            if (x+posX<0 or y+posY<0 or x+posX>size-1 or y+posY>size-1) {
+                fillNasty();
+                return;
+            }
+            if (Food::getIfFilled(food.getType(),x,y)) {
+                char symbol = grid[y+posY][x+posX];
+                if (symbol == '_') grid[y+posY][x+posX] = 'X';
+                else if (symbol == 'X') grid[y+posY][x+posX] = '@';
+            }
+
+        }
     }
-    if (grid[x][y] == '_') grid[x][y] = 'X';
-    else if (grid[x][y] == 'X') grid[x][y] = '@';
+
+    // for (int y = 0; y < size; y++) {
+    //     for (int x = 0; x < size; x++) {
+    //
+    //         int foodX = x-posX;
+    //         int foodY = y-posY;
+    //
+    //         if (foodX<0 or foodY<0);
+    //          else if (Food::getIfFilled(food.getType(),foodX, foodY)) {
+    //
+    //              if (x>size or x>size) {
+    //                  fillNasty();
+    //                  return;
+    //              }
+    //
+    //
+    //          }
+    //     }
+    // }
 
 
 
 }
-
 
 int Palate::getSize() {
     return size;
