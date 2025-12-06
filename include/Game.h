@@ -17,19 +17,19 @@ private:
     bool active=true;
 
     Customer* customer;
-    Palate palate;
+    Palate *palate;
     Food* activeFood; //current selected food
     std::vector<Food> dish; //holds cooked food to be served to customer
 
     static std::string getMetaChar(char character,bool overlay); //returns a string more visually interesting for an associated char
+    void callCustomer(); // loads a new customer
+    void dismissCustomer(); //has customer pay out, removes them
 
 public:
     explicit Game(int money=0, int level=0);
 
     void serveDish(); //servers current dish to customer
     void clearDish(); //clears all items from dish
-    void callCustomer(); // loads a new customer
-    void dismissCustomer(); //has customer pay out, removes them
     void applyFood(); //applies current food to dish
     void chooseFood(std::string selection); //sets active food, spends money
 

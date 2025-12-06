@@ -7,8 +7,8 @@
 
 Palate::Palate(int size, bool mask) {
     this->size = size;
-    setupDiagonalCross();
     mask = NONE;
+    setupEmpty();
 }
 
 void Palate::setupEmpty() {

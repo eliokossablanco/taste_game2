@@ -9,17 +9,20 @@
 int defaultCost = 10;
 int defaultSize = 11;
 
-Game::Game(int money, int level): palate(defaultSize,false) {
+Game::Game(int money, int level) {
+    palate = new Palate(defaultSize,false);
     this->money = money;
     this->level = level;
     activeFood = nullptr;
-    customer = new Customer(level);
+
+    callCustomer();
+    //palate.setupEmpty();
 }
 
 //Feature functions
 
 void Game::chooseFood(std::string selection) {
-    activeFood = new Food(selection,palate.getSize()/2, palate.getSize()/2, defaultCost);
+    activeFood = new Food(selection,palate->getSize()/2, palate->getSize()/2, defaultCost);
 }
 
 bool Game::move(int x, int y) {
@@ -30,11 +33,16 @@ bool Game::move(int x, int y) {
 
 //Helper functions
 
+void Game::callCustomer() {
+    customer = new Customer(level);
+    palate = customer->getPalate();
+}
+
 void Game::renderFrame() {
 
-    char** grid = palate.getGrid();
-    for (int y = -1; y <= palate.getSize(); y++) {
-        for (int x = -1; x <= palate.getSize(); x++) {
+    char** grid = palate->getGrid();
+    for (int y = -1; y <= palate->getSize(); y++) {
+        for (int x = -1; x <= palate->getSize(); x++) {
 
             bool hasOverlay=false;
 
@@ -47,7 +55,7 @@ void Game::renderFrame() {
             //if (activeFood != nullptr)
             //    hasOverlay = (activeFood->getX() == x && activeFood->getY() == y); //TODO CHANGE TO SHAPE
 
-            if (y<0 or x<0 or x>=palate.getSize() or y>=palate.getSize()) std::cout << getMetaChar('!', hasOverlay);
+            if (y<0 or x<0 or x>=palate->getSize() or y>=palate->getSize()) std::cout << getMetaChar('!', hasOverlay);
             else std::cout << getMetaChar(grid[y][x], hasOverlay);
         }
         std::cout << std::endl;

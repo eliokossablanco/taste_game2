@@ -13,7 +13,7 @@
 class Customer {
     private:
         std::string name;
-        Palate palate;
+        Palate *palate;
         //FoodType* order; //list of items expected in order
 
         //std::vector<Food> recievedFood; //list of foods received from kitchen
@@ -25,7 +25,7 @@ class Customer {
 
         //getters
         const Food* getOrder();
-        const Palate getPalate();
+        Palate* getPalate();
         const double getSatisfaction(); //returns percent satisfied (filled% * correctness%)
 
     ~Customer();

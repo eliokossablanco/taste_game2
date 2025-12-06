@@ -132,8 +132,8 @@ int main() {
     // }
     //
 
-    session.chooseFood("gibberish");
-    session.move(2,1);
+    //session.chooseFood("gibberish");
+    //session.move(2,1);
 
     //system("cls");
     session.renderFrame();
