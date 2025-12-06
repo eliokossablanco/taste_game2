@@ -28,7 +28,7 @@ private:
 public:
     explicit Game(int money=0, int level=0);
 
-    void serveDish(); //servers current dish to customer
+    float completeOrder(); //servers current dish to customer and returns payout
     void clearDish(); //clears all items from dish
     void applyFood(); //applies current food to dish
     void chooseFood(std::string selection); //sets active food, spends money

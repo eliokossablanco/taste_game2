@@ -28,12 +28,23 @@ void Game::chooseFood(std::string selection) {
 void Game::applyFood() {
     if (activeFood == nullptr) return;
     palate->applyFood(*activeFood);
+    activeFood = nullptr;
 }
 
 void Game::clearDish() {
     palate->clear();
+    activeFood = nullptr;
 }
 
+float Game::completeOrder() {
+    float pay = 1.0;
+
+    if (pay > 0) level ++;
+    callCustomer();
+
+    money += pay;
+    return pay;
+}
 
 bool Game::move(int x, int y) {
     if (activeFood==nullptr) return false; //TODO add failsafe message

@@ -11,7 +11,7 @@
 using namespace std;
 int stringErrorMargin = 1;
 
-Game session = Game(0,1);
+Game session = Game(0,0);
 
 int levenshteinRecursive(const string& str1,const string& str2, int m, int n) {
 //Credit https://www.geeksforgeeks.org/dsa/introduction-to-levenshtein-distance/
@@ -78,8 +78,11 @@ bool interpretInput(string input) {
 
     else if (textSimilar(input,"plate")) session.applyFood();
     else if (textSimilar(input,"86")) session.clearDish();
-    // else if (input == "serve") session.serveDish();
-    // else if (input== "86") session.clearDish();
+
+    else if (textSimilar(input, "serve")) {
+        float pay = session.completeOrder();
+        message = "Order served. Your were paid $" + to_string(pay);
+    }
 
     else if (textSimilar(input,"food")) {
         cout << "Select a food\n";

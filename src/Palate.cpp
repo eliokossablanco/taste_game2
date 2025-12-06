@@ -33,8 +33,8 @@ void Palate::setupDiamond() {
     for (int i = 0; i < size; i++) {
         grid[i] = new char[size];
         for (int j = 0; j < size; j++) {
-            int mid = size / 2;
-            int dist = (abs(i-mid)+abs(j-mid))-1;
+            float mid = (size / 2.0)-0.5;
+            float dist = (abs(i-mid)+abs(j-mid))-0.5;
             if (dist<mid) grid[i][j] = '_';
             else grid[i][j] = 'X';
         }
