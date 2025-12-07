@@ -6,17 +6,13 @@
 
 ## Current Status
 
-**Implemented**
--feature 1, accessing and displaying palate
--feature 2, selecting and moving food
--feature 3, food shapes
--feature 4, dish up and apply to palate
+**In progress**
+Save/Loading
+Movement pricing
+food star placement
+modify food shapes
 
-**In Progress**
--feature 5, generate customers and orders
-
-**Planned**
--feature 6, get paid on how full the palate is and how accurate the order is
+**All main features other than Save/Loading implemented**
 
 ## FEATURES
 1. **view palate shape and size of customer**
