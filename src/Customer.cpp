@@ -7,13 +7,24 @@
 #include "Palate.h"
 #include "Customer.h"
 
+#include <ctime>
 #include <vector>
+#include <bits/locale_classes.h>
 
 Customer::Customer(int level){
     palate = new Palate(int(5 + (2 * log(level + 1))), false); //size of palate is logarithmic relationship of level
-    order.push_back("chicken");
-    order.push_back("chicken");
-    name = "Elio";
+
+    //TODO randomize order size
+    int orderSize = std::clamp(int(1+sqrt(level/2.5)),0,6); //order size is an inverse squared relationship of level
+    std::vector<std::string> foods = Food::getFoods();
+
+    srand(time(0));
+    for (int i = 0; i < orderSize; i++) {
+        int choice = rand()%(foods.size());
+        order.push_back(foods[choice]);
+    }
+
+    name = "Customer #" + std::to_string(level);
 }
 
 void Customer::sendFood(std::string type) {
