@@ -83,6 +83,17 @@ void Game::renderFrame() {
         }
         std::cout << std::endl;
     }
+        //PRINT STATS
+    std::cout << "Level: "<< level+1 << "   | Money: $"<< money << std::endl;
+
+    std::cout << "\nCustomer: " << customer->getName()<< " wants:";
+    std::vector<std::string> order = customer->getOrder();
+
+    for (int i = 0; i < order.size(); i++) {
+        std::cout << "\n-" << order[i];
+    }
+    std::cout << std::endl;
+
 }
 
 const bool Game::isActive() {

@@ -20,12 +20,13 @@ class Customer {
     public:
         Customer(int level); //generate palate and order based on level
 
-        void sendFood(std::string type);
-        void clearFoodList();
+        void sendFood(std::string type); //adds name of food to recievedFood
+        void clearFoodList(); //clears recievedFood
 
         //getters
-        const Food* getOrder();
+        const std::vector<std::string> getOrder();
         Palate* getPalate();
+        std::string getName();
         const float getSatisfaction(); //returns percent satisfied (filled% * correctness%)
 
     ~Customer();

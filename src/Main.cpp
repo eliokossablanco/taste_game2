@@ -12,7 +12,7 @@
 using namespace std;
 int stringErrorMargin = 1;
 
-Game session = Game(0,0);
+Game session = Game(100,0);
 
 int levenshteinRecursive(const string& str1,const string& str2, int m, int n) {
 //Credit https://www.geeksforgeeks.org/dsa/introduction-to-levenshtein-distance/
@@ -84,7 +84,7 @@ bool interpretInput(string input) {
 
     else if (textSimilar(input, "serve")) {
         float pay = session.completeOrder();
-        stream << std::fixed << std::setprecision(2) << pay;
+        stream << std::fixed << std::setprecision(2) << pay; //used to format price to 2 decimal places
         message = "Order served. Your were paid $" + stream.str();
     }
 

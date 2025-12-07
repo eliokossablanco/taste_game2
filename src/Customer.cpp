@@ -28,6 +28,15 @@ Palate* Customer::getPalate() {
     return palate;
 }
 
+std::string Customer::getName() {
+     return name;
+}
+
+
+const std::vector<std::string> Customer::getOrder() {
+    return order;
+}
+
 const float Customer::getSatisfaction() {
     char** grid = palate->getGrid();
 
