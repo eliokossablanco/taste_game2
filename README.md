@@ -7,10 +7,10 @@
 ## Current Status
 
 **In progress**
-Save/Loading
-Movement pricing
-food star placement
-modify food shapes
+* Save/Loading
+* Movement pricing
+* food star placement
+* modify food shapes
 
 **All main features other than Save/Loading implemented**
 
