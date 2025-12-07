@@ -24,7 +24,7 @@ class Customer {
         //getters
         const Food* getOrder();
         Palate* getPalate();
-        const double getSatisfaction(); //returns percent satisfied (filled% * correctness%)
+        const float getSatisfaction(); //returns percent satisfied (filled% * correctness%)
 
     ~Customer();
 };

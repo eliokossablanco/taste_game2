@@ -37,7 +37,7 @@ void Game::clearDish() {
 }
 
 float Game::completeOrder() {
-    float pay = 1.0;
+    float pay = customer->getSatisfaction();
 
     if (pay > 0) level ++;
     callCustomer();
