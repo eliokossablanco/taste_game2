@@ -28,11 +28,13 @@ void Game::chooseFood(std::string selection) {
 void Game::applyFood() {
     if (activeFood == nullptr) return;
     palate->applyFood(*activeFood);
+    customer->sendFood(activeFood->getType());
     activeFood = nullptr;
 }
 
 void Game::clearDish() {
     palate->clear();
+    customer->clearFoodList();
     activeFood = nullptr;
 }
 
@@ -83,6 +85,10 @@ void Game::renderFrame() {
     }
 }
 
+const bool Game::isActive() {
+    return true;
+}
+
 std::string Game::getMetaChar(char character, bool overlay = false) {
     if (character == '_') {
         if (overlay) return std::string(2,char(177));
@@ -100,10 +106,6 @@ std::string Game::getMetaChar(char character, bool overlay = false) {
         return std::string(2,char(179));
     }
     else return "[]";
-}
-
-bool Game::isActive() {
-    return active;
 }
 
 Game::~Game() {

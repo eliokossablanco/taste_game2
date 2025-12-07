@@ -4,7 +4,8 @@
 #include <algorithm>
 #include <iostream>
 #include <cmath>
-#include <cstdlib>
+#include <iomanip>
+#include <sstream>
 
 #include "../include/Food.h"
 #include "../include/Game.h"
@@ -54,6 +55,8 @@ bool textSimilar(string a, string b) {
 }
 
 bool interpretInput(string input) {
+    std::stringstream stream;
+
     string message = "What would you like to do next? Type 'Help' for list of actions.";
 
     if (textSimilar(input,"help")) {
@@ -81,7 +84,8 @@ bool interpretInput(string input) {
 
     else if (textSimilar(input, "serve")) {
         float pay = session.completeOrder();
-        message = "Order served. Your were paid $" + to_string(pay);
+        stream << std::fixed << std::setprecision(2) << pay;
+        message = "Order served. Your were paid $" + stream.str();
     }
 
     else if (textSimilar(input,"food")) {

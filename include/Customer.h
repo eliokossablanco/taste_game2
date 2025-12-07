@@ -14,12 +14,14 @@ class Customer {
     private:
         std::string name;
         Palate *palate;
-        //FoodType* order; //list of items expected in order
-
-        //std::vector<Food> recievedFood; //list of foods received from kitchen
+        std::vector<std::string> order; //list of items expected in order
+        std::vector<std::string> recievedFood; //list of items recieved from kitchen
 
     public:
         Customer(int level); //generate palate and order based on level
+
+        void sendFood(std::string type);
+        void clearFoodList();
 
         //getters
         const Food* getOrder();

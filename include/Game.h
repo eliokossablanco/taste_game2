@@ -14,16 +14,13 @@ class Game{
 private:
     int money;
     int level;
-    bool active=true;
 
     Customer* customer;
     Palate *palate;
     Food* activeFood; //current selected food
-    std::vector<Food> dish; //holds cooked food to be served to customer
 
     static std::string getMetaChar(char character,bool overlay); //returns a string more visually interesting for an associated char
     void callCustomer(); // loads a new customer
-    void dismissCustomer(); //has customer pay out, removes them
 
 public:
     explicit Game(int money=0, int level=0);
@@ -36,11 +33,10 @@ public:
     bool move(int x, int y); //moves selected food piece if possible
 
     void renderFrame();
+    const bool isActive();
 
     int saveGame();
     int loadGame();
-
-    bool isActive();
 
     ~Game();
 
