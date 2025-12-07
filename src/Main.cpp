@@ -92,7 +92,7 @@ bool interpretInput(string input) {
         cout << "Select a food\n";
         vector<string> foods = Food::getFoods();
         for (int i = 0; i < foods.size(); i++) {
-            cout << "-" << foods[i] <<endl;
+            cout << "-" << foods[i] << " - $" << Food::getCost(foods[i])<<endl;
         }
 
         string foodInput;

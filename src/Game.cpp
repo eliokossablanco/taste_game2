@@ -6,10 +6,10 @@
 
 #include <iostream>
 
-int defaultCost = 10;
+//int defaultCost = 10;
 int defaultSize = 11;
 
-Game::Game(int money, int level) {
+Game::Game(float money, int level) {
     palate = new Palate(defaultSize,false);
     this->money = money;
     this->level = level;
@@ -22,7 +22,8 @@ Game::Game(int money, int level) {
 //Feature functions
 
 void Game::chooseFood(std::string selection) {
-    activeFood = new Food(selection,palate->getSize()/2, palate->getSize()/2, defaultCost);
+    activeFood = new Food(selection,palate->getSize()/2, palate->getSize()/2);
+    money -= Food::getCost(selection);
 }
 
 void Game::applyFood() {

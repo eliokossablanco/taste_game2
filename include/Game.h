@@ -12,7 +12,7 @@
 
 class Game{
 private:
-    int money;
+    float money;
     int level;
 
     Customer* customer;
@@ -23,7 +23,7 @@ private:
     void callCustomer(); // loads a new customer
 
 public:
-    explicit Game(int money=0, int level=0);
+    explicit Game(float money=0, int level=0);
 
     float completeOrder(); //servers current dish to customer and returns payout
     void clearDish(); //clears all items from dish

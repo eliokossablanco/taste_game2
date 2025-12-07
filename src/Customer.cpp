@@ -52,12 +52,14 @@ const float Customer::getSatisfaction() {
     float palateFilled = std::clamp(points / pow(size, 2),0.0,1.0);
 
     float orderPoints = 0;
+    float rollingTotal = 0.0;
     std::vector<std::string> recievedFoodCompare(recievedFood);
 
     for (int i = 0; i<order.size(); i++) {
         for (int e=0; e<recievedFoodCompare.size(); e++) {
             if (order[i] == recievedFoodCompare[e]) {
                 orderPoints++;
+                rollingTotal+=Food::getCost(order[i]);
                 recievedFoodCompare[e] = "";
                 break;
             }
@@ -65,7 +67,7 @@ const float Customer::getSatisfaction() {
     }
     float orderFilled = orderPoints/order.size();
 
-    float satisfaction = palateFilled*orderFilled; //TODO multiply by total price of order (* 2)
+    float satisfaction = palateFilled*orderFilled*2.0*rollingTotal; //TODO multiply by total price of order (* 2)
     satisfaction = roundf(satisfaction*100.0f)/100.0f;
 
     return (satisfaction);
